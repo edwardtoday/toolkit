@@ -7,8 +7,8 @@
 
 void InitLog() {
   boost::shared_ptr<logging::core> core = logging::core::get();
-  typedef sinks::synchronous_sink<sinks::text_file_backend> TextSink;
   // init sink1
+  typedef sinks::synchronous_sink<sinks::text_file_backend> TextSink;
   boost::shared_ptr<sinks::text_file_backend> backend1 =
     boost::make_shared<sinks::text_file_backend>(
       // log filename pattern
@@ -32,7 +32,21 @@ void InitLog() {
                                boost::log::keywords::format = "%n (%f : %l)")
     % expr::smessage
   );
+  sink1->set_filter(logging::trivial::severity >= logging::trivial::trace);
   core->add_sink(sink1);
+  // init sink2
+  typedef sinks::synchronous_sink< sinks::text_ostream_backend > StreamSink;
+  boost::shared_ptr< StreamSink > sink2 = boost::make_shared< StreamSink >();
+  sink2->set_formatter(
+    expr::format("(%1%): %2%")
+    % expr::format_date_time< boost::posix_time::ptime >("TimeStamp",
+        "%Y-%m-%d %H:%M:%S")
+    % expr::smessage
+  );
+  boost::shared_ptr< std::ostream > stream(&std::clog, boost::empty_deleter());
+  sink2->locked_backend()->add_stream(stream);
+  sink2->set_filter(logging::trivial::severity >= logging::trivial::info);
+  core->add_sink(sink2);
   logging::add_common_attributes();
   core->add_global_attribute("Scopes", attrs::named_scope());
 }
