@@ -1,5 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #ifndef QINGPEI_TOOLKIT_LOGGING_H_
 #define QINGPEI_TOOLKIT_LOGGING_H_
 #include <boost/shared_ptr.hpp>

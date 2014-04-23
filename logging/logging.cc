@@ -1,6 +1,8 @@
+#include "stdafx.h"
 #include "logging.h"
+
 #ifndef LOG_FILE_NAME
-#define LOG_FILE_NAME "info"
+#define LOG_FILE_NAME "output"
 #endif  // LOG_FILE_NAME
 
 void InitLog() {
