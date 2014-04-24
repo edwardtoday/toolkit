@@ -22,14 +22,16 @@ void InitLog() {
   backend1->auto_flush(true);
   boost::shared_ptr<TextSink> sink1(new TextSink(backend1));
   sink1->set_formatter(
-    expr::format("(%1%)(%2%)(%3%)(%4%)<%5%>: %6%")
+    expr::format("(%1%)(%2%)(%3%)(%4%)<%5%>:\n\t> %6%")
     % expr::attr<unsigned int>("LineID")
     % expr::format_date_time< boost::posix_time::ptime >("TimeStamp",
         "%Y-%m-%d %H:%M:%S")
     % expr::attr<logging::trivial::severity_level>("Severity")
     % expr::attr<attrs::current_thread_id::value_type>("ThreadID")
     % expr::format_named_scope("Scopes",
-                               boost::log::keywords::format = "%n (%f : %l)")
+                               boost::log::keywords::format = "%n (%f:%l)",
+                               boost::log::keywords::iteration = expr::forward,
+                               boost::log::keywords::depth = 2)
     % expr::smessage
   );
   sink1->set_filter(logging::trivial::severity >= logging::trivial::trace);
