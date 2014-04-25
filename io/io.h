@@ -1,6 +1,8 @@
 #ifndef QINGPEI_TOOLKIT_IO_
 #define QINGPEI_TOOLKIT_IO_
 
+#include <string>
+
 namespace qingpei {
 namespace toolkit {
 namespace io {
