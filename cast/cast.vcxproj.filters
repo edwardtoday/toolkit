@@ -18,6 +18,9 @@
     <ClCompile Include="cast.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="main.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cast.h">
