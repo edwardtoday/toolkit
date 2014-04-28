@@ -73,7 +73,6 @@
     <ClInclude Include="crc.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="crc.cc" />
     <ClCompile Include="main.cc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

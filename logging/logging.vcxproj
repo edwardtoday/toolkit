@@ -83,7 +83,6 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="logging.cc" />
     <ClCompile Include="main.cc" />
   </ItemGroup>
   <ItemGroup>
