@@ -60,7 +60,7 @@ uint16_t crc16(const uint8_t* buffer, std::size_t buffer_length) {
   return crc;
 }
 
-// XMODEM-16: 0x8408    x^16 + x^15 + x^10 + x^3
+// CCITT-16: 0x1021    x^16 + x^12 + x^5 + 1
 uint16_t crc16_lc300(const uint8_t* buffer, std::size_t buffer_length) {
   uint8_t c, treat, bcrc;
   uint16_t wcrc = 0;

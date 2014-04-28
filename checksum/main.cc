@@ -9,10 +9,13 @@ int main() {
   uint8_t sum = qingpei::toolkit::checksum::bytesum(str, 3);
   assert(sum == 0x26);
   // test crc16
+  uint8_t s[] = { 0x00, 0x34, 0x36, 0x30, 0x30, 0x32, 0x30, 0x38, 0x32, 0x32, 0x34, 0x38, 0x35, 0x34, 0x32, 0x30, 0x00, 0x18, 0x71, 0x41, 0xC3 };
+  assert(0x6184 == qingpei::toolkit::checksum::crc16(s, 21));
+  // test crc16 == crc16_lc300
   srand(static_cast<unsigned int>(time(NULL)));
   uint8_t testdata[1000];
 
-  for (int i = 0; i < 10000; ++i) {
+  for (int i = 0; i < 1000; ++i) {
     for (int i = 0; i < 1000; ++i) {
       testdata[i] = rand() % 256;
     }
