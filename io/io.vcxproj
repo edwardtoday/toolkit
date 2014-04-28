@@ -49,7 +49,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>AStyle.exe --style=google --indent=spaces=2 --convert-tabs --attach-namespaces --attach-classes --attach-inlines --break-blocks --pad-oper --pad-header --delete-empty-lines --align-pointer=type --align-reference=type --max-code-length=80 --add-brackets --remove-comment-prefix --preserve-date --formatted --mode=c --break-after-logical --suffix=none --recursive "$(ProjectDir)*.cc" "$(ProjectDir)*.h"</Command>
+      <Command>AStyle.exe --style=google -s2 -c -Y -xn -xc -xl -xk -w -f -p  -H -U -xe -k1 -W1 -j -xy -xp -xC80 -xL -Z -Q --mode=c -n -r "$(ProjectDir)*.cc" "$(ProjectDir)*.h"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -66,7 +66,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PreBuildEvent>
-      <Command>AStyle.exe --style=google --indent=spaces=2 --convert-tabs --attach-namespaces --attach-classes --attach-inlines --break-blocks --pad-oper --pad-header --delete-empty-lines --align-pointer=type --align-reference=type --max-code-length=80 --add-brackets --remove-comment-prefix --preserve-date --formatted --mode=c --break-after-logical --suffix=none --recursive "$(ProjectDir)*.cc" "$(ProjectDir)*.h"</Command>
+      <Command>AStyle.exe --style=google -s2 -c -Y -xn -xc -xl -xk -w -f -p  -H -U -xe -k1 -W1 -j -xy -xp -xC80 -xL -Z -Q --mode=c -n -r "$(ProjectDir)*.cc" "$(ProjectDir)*.h"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

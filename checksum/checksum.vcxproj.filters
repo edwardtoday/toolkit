@@ -23,5 +23,8 @@
     <ClCompile Include="main.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="crc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
