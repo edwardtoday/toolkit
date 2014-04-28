@@ -48,6 +48,9 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>AStyle.exe --style=google --indent=spaces=2 --convert-tabs --attach-namespaces --attach-classes --attach-inlines --break-blocks --pad-oper --pad-header --delete-empty-lines --align-pointer=type --align-reference=type --max-code-length=80 --add-brackets --remove-comment-prefix --preserve-date --formatted --mode=c --break-after-logical --suffix=none --recursive "$(ProjectDir)*.cc" "$(ProjectDir)*.h"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -62,6 +65,9 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <PreBuildEvent>
+      <Command>AStyle.exe --style=google --indent=spaces=2 --convert-tabs --attach-namespaces --attach-classes --attach-inlines --break-blocks --pad-oper --pad-header --delete-empty-lines --align-pointer=type --align-reference=type --max-code-length=80 --add-brackets --remove-comment-prefix --preserve-date --formatted --mode=c --break-after-logical --suffix=none --recursive "$(ProjectDir)*.cc" "$(ProjectDir)*.h"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cast.cc" />

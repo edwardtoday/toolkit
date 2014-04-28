@@ -13,7 +13,7 @@ std::string read_file_as_string(const char* filename) {
   if (in) {
     std::string contents;
     in.seekg(0, std::ios::end);
-    contents.resize(in.tellg());
+    contents.resize(static_cast<unsigned int>(in.tellg()));
     in.seekg(0, std::ios::beg);
     in.read(&contents[0], contents.size());
     in.close();
