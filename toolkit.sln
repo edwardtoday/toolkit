@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "io", "io\io.vcxproj", "{3F2
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cast", "cast\cast.vcxproj", "{9B44EDAC-121A-4782-AD9F-F61D657FA696}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "checksum", "checksum\checksum.vcxproj", "{0D781EDC-A400-44C8-B3C0-160D083413F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -27,8 +29,15 @@ Global
 		{9B44EDAC-121A-4782-AD9F-F61D657FA696}.Debug|Win32.Build.0 = Debug|Win32
 		{9B44EDAC-121A-4782-AD9F-F61D657FA696}.Release|Win32.ActiveCfg = Release|Win32
 		{9B44EDAC-121A-4782-AD9F-F61D657FA696}.Release|Win32.Build.0 = Release|Win32
+		{0D781EDC-A400-44C8-B3C0-160D083413F1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0D781EDC-A400-44C8-B3C0-160D083413F1}.Debug|Win32.Build.0 = Debug|Win32
+		{0D781EDC-A400-44C8-B3C0-160D083413F1}.Release|Win32.ActiveCfg = Release|Win32
+		{0D781EDC-A400-44C8-B3C0-160D083413F1}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal
