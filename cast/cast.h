@@ -38,16 +38,16 @@ void uint32_to_bytes(uint32_t num, uint8_t* bytes) {
   bytes[3] = static_cast<uint8_t>(num & 0xff);
 }
 
-/* Convert bytes to hex string
+/* Convert array to hex string
    e.g. {0x11, 0x02, 0x33} => "110233"
  **/
-std::string bytes_to_hex_string(const uint8_t* bytes, std::size_t length) {
+template<class T>
+std::string array_to_hex_string(const T* array, std::size_t length) {
   std::stringstream ss;
-  ss;
+  const std::size_t width = sizeof(array[0]) * 2;
 
   for (std::size_t i = 0; i < length; ++i) {
-    ss << std::hex << std::setfill('0') << std::uppercase << std::setw(
-         2) << static_cast<unsigned short>(bytes[i]);
+    ss << std::hex << std::setfill('0') << std::uppercase << std::setw(width) << (array[i]);
   }
 
   return ss.str();
@@ -56,8 +56,9 @@ std::string bytes_to_hex_string(const uint8_t* bytes, std::size_t length) {
 template<class T>
 std::string num_to_hex_string(const T num) {
   std::stringstream ss;
-  ss << std::hex << std::setfill('0') << std::uppercase << std::setw(sizeof(
-        num) * 2) << num;
+  const std::size_t width = sizeof(num) * 2;
+
+  ss << std::hex << std::setfill('0') << std::uppercase << std::setw(width) << num;
   return ss.str();
 }
 
