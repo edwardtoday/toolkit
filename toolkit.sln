@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cast", "cast\cast.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "checksum", "checksum\checksum.vcxproj", "{0D781EDC-A400-44C8-B3C0-160D083413F1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hash", "hash\hash.vcxproj", "{F8108CA8-1415-4A66-AB8D-A15640491F8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -33,6 +35,10 @@ Global
 		{0D781EDC-A400-44C8-B3C0-160D083413F1}.Debug|Win32.Build.0 = Debug|Win32
 		{0D781EDC-A400-44C8-B3C0-160D083413F1}.Release|Win32.ActiveCfg = Release|Win32
 		{0D781EDC-A400-44C8-B3C0-160D083413F1}.Release|Win32.Build.0 = Release|Win32
+		{F8108CA8-1415-4A66-AB8D-A15640491F8C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F8108CA8-1415-4A66-AB8D-A15640491F8C}.Debug|Win32.Build.0 = Debug|Win32
+		{F8108CA8-1415-4A66-AB8D-A15640491F8C}.Release|Win32.ActiveCfg = Release|Win32
+		{F8108CA8-1415-4A66-AB8D-A15640491F8C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
