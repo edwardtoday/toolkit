@@ -70,7 +70,6 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="cryptohash.h" />
     <ClInclude Include="hash.h" />
     <ClInclude Include="md5.h" />
   </ItemGroup>
