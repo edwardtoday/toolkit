@@ -32,7 +32,7 @@ std::string array_to_hex_string(const T* array, std::size_t length) {
 
   for (std::size_t i = 0; i < length; ++i) {
     ss << std::hex << std::setfill('0') << std::uppercase << std::setw(width) <<
-       (array[i]);
+       (int)(array[i]);
   }
 
   return ss.str();
@@ -43,7 +43,7 @@ std::string num_to_hex_string(const T num) {
   std::stringstream ss;
   const std::size_t width = sizeof(num) * 2;
   ss << std::hex << std::setfill('0') << std::uppercase << std::setw(
-       width) << num;
+       width) << (int)num;
   return ss.str();
 }
 
