@@ -32,6 +32,7 @@ void InitLog();
 
 void DeInitLog();
 
-BOOST_LOG_INLINE_GLOBAL_LOGGER_DEFAULT(my_logger,
-                                       boost::log::sources::severity_logger_mt<boost::log::trivial::severity_level>)
+BOOST_LOG_INLINE_GLOBAL_LOGGER_DEFAULT(
+  my_logger,
+  boost::log::sources::severity_logger_mt<boost::log::trivial::severity_level>)
 #endif  // QINGPEI_TOOLKIT_LOGGING_H_
