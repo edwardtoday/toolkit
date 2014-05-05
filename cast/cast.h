@@ -66,7 +66,7 @@ void num_to_bytes(const T num, uint8_t* bytes) {
   const std::size_t width = sizeof(num);  // size in bytes
 
   for (int i = 0; i < width; ++i) {
-    bytes[i] = static_cast<uint8_t>((num >>((width - i - 1) * 8) && 0xff));
+    bytes[width - 1 - i] = static_cast<uint8_t>(num >>(i * 8));
   }
 }
 
