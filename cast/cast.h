@@ -5,6 +5,7 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <vector>
 
 namespace qingpei {
 namespace toolkit {
@@ -35,6 +36,23 @@ std::string array_to_hex_string(const T* array, std::size_t length) {
        (int)(array[i]);
   }
 
+  return ss.str();
+}
+
+/* Convert vector to string
+  e.g. {a, b, c} => "[a,b,c,]"
+  Notice that last comma.
+**/
+template<class T>
+std::string vector_to_string(const std::vector<T> vec) {
+  std::stringstream ss;
+  ss << "[";
+
+  for (T i : vec) {
+    ss << i << ",";
+  }
+
+  ss << "]";
   return ss.str();
 }
 
