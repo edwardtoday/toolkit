@@ -10,22 +10,9 @@
 namespace qingpei {
 namespace toolkit {
 namespace cast {
-/* Conversions between bytes (uint8_t) and integer types
-   Caller should make sure
-     - input pointer is valid
-     - output pointer has enough space allocated
- **/
-uint16_t bytes_to_uint16(const uint8_t* bytes);
-
-void uint16_to_bytes(uint16_t num, uint8_t* bytes);
-
-uint32_t bytes_to_uint32(const uint8_t* bytes);
-
-void uint32_to_bytes(uint32_t num, uint8_t* bytes);
-
-/* Convert array to hex string
+/** Convert array to hex string
    e.g. {0x11, 0x02, 0x33} => "110233"
- **/
+*/
 template<class T>
 std::string array_to_hex_string(const T* array, std::size_t length) {
   std::stringstream ss;
@@ -39,10 +26,10 @@ std::string array_to_hex_string(const T* array, std::size_t length) {
   return ss.str();
 }
 
-/* Convert vector to string
+/** Convert vector to string
   e.g. {a, b, c} => "[a,b,c,]"
   Notice that last comma.
-**/
+*/
 template<class T>
 std::string vector_to_string(const std::vector<T> vec) {
   std::stringstream ss;
@@ -56,13 +43,43 @@ std::string vector_to_string(const std::vector<T> vec) {
   return ss.str();
 }
 
+/** Convert a numerical type to hex string
+  e.g. (uint8_t)(12) => "0x0C", (int32_t)(4) => "0x00000004"
+*/
 template<class T>
 std::string num_to_hex_string(const T num) {
   std::stringstream ss;
-  const std::size_t width = sizeof(num) * 2;
+  const std::size_t width = sizeof(num) * 2; // size in bytes
   ss << std::hex << std::setfill('0') << std::uppercase << std::setw(
        width) << (int)num;
   return ss.str();
+}
+
+/**
+  @brief    Conversions from integer types to bytes (uint8_t*)
+  @warning  Caller should make sure that
+              - input pointer is valid
+              - output pointer has enough space (sizeof(num) bytes) allocated
+*/
+template<class T>
+void num_to_bytes(const T num, uint8_t* bytes) {
+  const std::size_t width = sizeof(num);  // size in bytes
+
+  for (int i = 0; i < width; ++i) {
+    bytes[i] = static_cast<uint8_t>((num >>((width - i - 1) * 8) && 0xff));
+  }
+}
+
+template<class T>
+T bytes_to_num(const uint8_t* bytes) {
+  T result;
+  const std::size_t width = sizeof(result);  // size in bytes
+
+  for (int i = 0; i < width; ++i) {
+    result |= bytes[i] << ((width - i - 1) * 8);
+  }
+
+  return result;
 }
 
 } // namespace cast
