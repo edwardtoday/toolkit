@@ -72,7 +72,7 @@ void num_to_bytes(const T num, uint8_t* bytes) {
 
 template<class T>
 T bytes_to_num(const uint8_t* bytes) {
-  T result;
+  T result = 0;
   const std::size_t width = sizeof(result);  // size in bytes
 
   for (int i = 0; i < width; ++i) {
