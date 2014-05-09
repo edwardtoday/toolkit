@@ -6,6 +6,7 @@
 #include <sstream>
 #include <iomanip>
 #include <vector>
+#include <bitset>
 
 namespace qingpei {
 namespace toolkit {
@@ -25,6 +26,8 @@ std::string array_to_hex_string(const T* array, std::size_t length) {
 
   return ss.str();
 }
+
+std::string array_to_bitset_string(const uint8_t* array, std::size_t length);
 
 /** Convert vector to string
   e.g. {a, b, c} => "[a,b,c,]"
