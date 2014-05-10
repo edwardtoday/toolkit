@@ -1,7 +1,8 @@
 #include "cast.h"
+#pragma warning(push, 0)
 #include "assert.h"
-
 #include <iostream>
+#pragma warning(pop)
 
 int main() {
   uint8_t bytes[] = {0x00, 0x0a, 0x01, 0x02};

@@ -1,6 +1,9 @@
 #include "hash.h"
+
+#pragma warning(push, 0)
 #include <string>
 #include <iostream>
+#pragma warning(pop)
 
 int main() {
   char str[] = "qingpei";

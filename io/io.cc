@@ -1,6 +1,8 @@
 #include "io.h"
+#pragma warning(push, 0)
 #include <string>
 #include <fstream>
+#pragma warning(pop)
 
 namespace qingpei {
 namespace toolkit {

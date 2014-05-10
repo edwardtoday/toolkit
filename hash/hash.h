@@ -3,7 +3,9 @@
 extern "C" {
 #include "md5.h"
 }
+#pragma warning(push, 0)
 #include <string>
+#pragma warning(pop)
 
 namespace qingpei {
 namespace toolkit {

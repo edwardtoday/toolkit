@@ -2,7 +2,13 @@
 #include "logging.h"
 
 void Bar() {
+  boost::log::sources::severity_logger_mt<boost::log::trivial::severity_level>& lg
+    =
+      my_logger::get();
+  // Mark the scope of the function foo
+  BOOST_LOG_FUNCTION();
   int x = 0;
+  BOOST_LOG_SEV(lg, boost::log::trivial::info) << "Bar(): x=" << x;
 }
 
 void Error() {

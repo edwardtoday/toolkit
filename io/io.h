@@ -1,7 +1,9 @@
 #ifndef QINGPEI_TOOLKIT_IO_
 #define QINGPEI_TOOLKIT_IO_
 
+#pragma warning(push, 0)
 #include <string>
+#pragma warning(pop)
 
 namespace qingpei {
 namespace toolkit {

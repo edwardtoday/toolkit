@@ -1,7 +1,10 @@
 #include "crc.h"
+
+#pragma warning(push, 0)
 #include <assert.h>
 #include <stdlib.h>
 #include <time.h>
+#pragma warning(pop)
 
 int main() {
   // test crc8
@@ -17,7 +20,7 @@ int main() {
 
   for (int i = 0; i < 1000; ++i) {
     for (int i = 0; i < 1000; ++i) {
-      testdata[i] = rand() % 256;
+      testdata[i] = static_cast<uint8_t>(rand() % 256);
     }
 
     uint16_t crc16 = qingpei::toolkit::checksum::crc16(testdata, 10);

@@ -1,12 +1,14 @@
 #ifndef QINGPEI_TOOLKIT_CAST_
 #define QINGPEI_TOOLKIT_CAST_
 
+#pragma warning(push, 0)
 #include <stdint.h>
 #include <string>
 #include <sstream>
 #include <iomanip>
 #include <vector>
 #include <bitset>
+#pragma warning(pop)
 
 namespace qingpei {
 namespace toolkit {

@@ -1,5 +1,6 @@
 #ifndef QINGPEI_TOOLKIT_LOGGING_H_
 #define QINGPEI_TOOLKIT_LOGGING_H_
+#pragma warning(push, 0)
 #include <boost/shared_ptr.hpp>
 #include <boost/make_shared.hpp>
 #include <boost/thread/thread.hpp>
@@ -25,6 +26,7 @@
 #include <boost/log/sources/severity_logger.hpp>
 #include <boost/log/sources/severity_feature.hpp>
 #include <fstream>
+#pragma warning(pop)
 
 namespace trivial = boost::log::trivial;
 

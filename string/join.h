@@ -1,8 +1,10 @@
 #ifndef QINGPEI_TOOLKIT_STRING_JOIN_
 #define QINGPEI_TOOLKIT_STRING_JOIN_
 
+#pragma warning(push, 0)
 #include <string>
 #include <sstream>
+#pragma warning(pop)
 
 namespace qingpei {
 namespace toolkit {
@@ -12,8 +14,8 @@ template <typename T>
 std::string join(const T& v, const std::string& delim) {
   std::stringstream s;
 
-  for(const auto& i : v) {
-    if(&i != &v[0]) {
+  for (const auto& i : v) {
+    if (&i != &v[0]) {
       s << delim;
     }
 
