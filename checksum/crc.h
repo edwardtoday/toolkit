@@ -1,10 +1,10 @@
 #ifndef QINGPEI_TOOLKIT_CHECKSUM_
 #define QINGPEI_TOOLKIT_CHECKSUM_
 
-#pragma warning(push, 0)
+
 #include <stdint.h>
 #include <cstddef>
-#pragma warning(pop)
+
 
 namespace qingpei {
 namespace toolkit {
