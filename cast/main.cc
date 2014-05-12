@@ -19,5 +19,7 @@ int main() {
   std::cout << qingpei::toolkit::cast::num_to_hex_string(
               0x1122334455667788) << "\n";
   std::cout << qingpei::toolkit::cast::array_to_bitset_string(bytes, 4) << "\n";
+  std::string hex_string("0A0B02");
+  std::cout << qingpei::toolkit::cast::hex_string_to_bitset_string(hex_string);
   return 0;
 }

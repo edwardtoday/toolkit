@@ -102,6 +102,8 @@ T bytes_to_num(const uint8_t* bytes) {
   return result;
 }
 
+std::string hex_string_to_bitset_string(const std::string& hex_string);
+
 } // namespace cast
 } // namespace toolkit
 } // namespace qingpei
