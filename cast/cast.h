@@ -21,9 +21,16 @@ std::string array_to_hex_string(const T* array, std::size_t length) {
   std::stringstream ss;
   const std::size_t width = sizeof(array[0]) * 2;
 
-  for (std::size_t i = 0; i < length; ++i) {
-    ss << std::hex << std::setfill('0') << std::uppercase << std::setw(width) <<
-       (int)(array[i]);
+  if (width < 3) {
+    for (std::size_t i = 0; i < length; ++i) {
+      ss << std::hex << std::setfill('0') << std::uppercase << std::setw(width) <<
+         (int)(array[i]);
+    }
+  } else {
+    for (std::size_t i = 0; i < length; ++i) {
+      ss << std::hex << std::setfill('0') << std::uppercase << std::setw(width) <<
+         array[i];
+    }
   }
 
   return ss.str();
@@ -55,8 +62,16 @@ template<class T>
 std::string num_to_hex_string(const T num) {
   std::stringstream ss;
   const std::size_t width = sizeof(num) * 2; // size in bytes
-  ss << std::hex << std::setfill('0') << std::uppercase << std::setw(
-       width) << (int)num;
+
+  if (width < 3) {
+    /// artifacts, see http://blog.mezeske.com/?p=170
+    ss << std::hex << std::setfill('0') << std::uppercase << std::setw(
+         width) << static_cast<int>(num);
+  } else {
+    ss << std::hex << std::setfill('0') << std::uppercase << std::setw(
+         width) << num;
+  }
+
   return ss.str();
 }
 
