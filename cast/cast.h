@@ -19,7 +19,7 @@ namespace cast {
 template<class T>
 std::string array_to_hex_string(const T* array, std::size_t length) {
   std::stringstream ss;
-  const std::size_t width = sizeof(array[0]) * 2;
+  std::size_t width = sizeof(array[0]) * 2;
 
   if (width < 3) {
     for (std::size_t i = 0; i < length; ++i) {
@@ -61,7 +61,7 @@ std::string vector_to_string(const std::vector<T> vec) {
 template<class T>
 std::string num_to_hex_string(const T num) {
   std::stringstream ss;
-  const std::size_t width = sizeof(num) * 2; // size in bytes
+  std::size_t width = sizeof(num) * 2; // size in bytes
 
   if (width < 3) {
     /// artifacts, see http://blog.mezeske.com/?p=170

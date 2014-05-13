@@ -19,7 +19,7 @@ std::string array_to_bitset_string(const uint8_t* array, std::size_t length) {
 std::string hex_string_to_bitset_string(const std::string& hex_string) {
   std::string binary_string = "";
 
-  for (int i = 0; i < hex_string.length(); ++i) {
+  for (std::size_t i = 0; i < hex_string.length(); ++i) {
     switch (tolower(hex_string[i])) {
     case '0':
       binary_string.append("0000");
