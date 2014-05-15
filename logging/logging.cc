@@ -41,7 +41,11 @@ void InitLog() {
                                       keywords::depth = 2)
     % expressions::smessage
   );
+#ifdef _DEBUG
   sink1->set_filter(trivial::severity >= trivial::trace);
+#else
+  sink1->set_filter(trivial::severity >= trivial::debug);
+#endif
   log_core_->add_sink(sink1);
   // init sink2
   typedef sinks::synchronous_sink<sinks::text_ostream_backend> StreamSink;
