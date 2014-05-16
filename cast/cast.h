@@ -43,7 +43,7 @@ std::string array_to_bitset_string(const uint8_t* array, std::size_t length);
   Notice that last comma.
 */
 template<class T>
-std::string vector_to_string(const std::vector<T> vec) {
+std::string vector_to_string(const std::vector<T>& vec) {
   std::stringstream ss;
   ss << "[";
 
