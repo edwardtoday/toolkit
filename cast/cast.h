@@ -1,18 +1,17 @@
 #ifndef QINGPEI_TOOLKIT_CAST_
 #define QINGPEI_TOOLKIT_CAST_
 
-
-#include <stdint.h>
-#include <string>
-#include <sstream>
-#include <iomanip>
-#include <vector>
 #include <bitset>
-
+#include <cstdint>
+#include <iomanip>
+#include <sstream>
+#include <string>
+#include <vector>
 
 namespace qingpei {
 namespace toolkit {
 namespace cast {
+
 /** Convert array to hex string
    e.g. {0x11, 0x02, 0x33} => "110233"
 */

@@ -1,5 +1,5 @@
 #include "cast.h"
-#include <ctype.h>
+#include <cctype>
 
 namespace qingpei {
 namespace toolkit {

@@ -3,6 +3,7 @@
 namespace qingpei {
 namespace toolkit {
 namespace checksum {
+
 uint8_t bytesum(const uint8_t* buffer, std::size_t buffer_length) {
   unsigned char checksum = 0;
 

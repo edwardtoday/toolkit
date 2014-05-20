@@ -1,14 +1,13 @@
 #ifndef QINGPEI_TOOLKIT_CHECKSUM_
 #define QINGPEI_TOOLKIT_CHECKSUM_
 
-
-#include <stdint.h>
+#include <cstdint>
 #include <cstddef>
-
 
 namespace qingpei {
 namespace toolkit {
 namespace checksum {
+
 /**
   @brief Calculate byte-wise sum of an input buffer
 

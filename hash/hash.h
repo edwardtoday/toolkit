@@ -10,6 +10,7 @@ extern "C" {
 namespace qingpei {
 namespace toolkit {
 namespace hash {
+
 /**
   @brief      Compute MD5 digest of input bytes
 

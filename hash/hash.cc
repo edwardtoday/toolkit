@@ -4,6 +4,7 @@
 namespace qingpei {
 namespace toolkit {
 namespace hash {
+
 void md5(unsigned char* bytes, unsigned long size, unsigned char* digest) {
   MD5_CTX ctx;
   MD5_Init(&ctx);
