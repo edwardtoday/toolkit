@@ -44,7 +44,7 @@ void InitLog() {
 #ifdef _DEBUG
   sink1->set_filter(trivial::severity >= trivial::trace);
 #else
-  sink1->set_filter(trivial::severity >= trivial::debug);
+  sink1->set_filter(trivial::severity >= trivial::info);
 #endif
   log_core_->add_sink(sink1);
   // init sink2
@@ -59,7 +59,7 @@ void InitLog() {
   boost::shared_ptr<std::ostream> stream(&std::clog, boost::empty_deleter());
   sink2->locked_backend()->add_stream(stream);
 #ifdef _DEBUG
-  sink2->set_filter(trivial::severity >= trivial::trace);
+  sink2->set_filter(trivial::severity >= trivial::debug);
 #else
   sink2->set_filter(trivial::severity >= trivial::info);
 #endif
