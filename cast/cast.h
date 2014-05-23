@@ -95,7 +95,7 @@ T bytes_to_num(const uint8_t* bytes) {
   const std::size_t width = sizeof(result);  // size in bytes
 
   for (int i = 0; i < width; ++i) {
-    result |= bytes[i] << ((width - i - 1) * 8);
+    result |= (T)bytes[i] << ((width - i - 1) * 8);
   }
 
   return result;
