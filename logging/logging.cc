@@ -12,6 +12,7 @@ void InitLog() {
   namespace trivial = boost::log::trivial;
   namespace attributes = boost::log::attributes;
   boost::shared_ptr<boost::log::core> log_core_ = boost::log::core::get();
+#ifdef LOG_TO_FILE
   // init sink1
   typedef sinks::synchronous_sink<sinks::text_file_backend> TextSink;
   boost::shared_ptr<sinks::text_file_backend> backend1 =
@@ -42,6 +43,7 @@ void InitLog() {
   sink1->set_filter(trivial::severity >= trivial::info);
 #endif
   log_core_->add_sink(sink1);
+#endif
   // init sink2
   typedef sinks::synchronous_sink<sinks::text_ostream_backend> StreamSink;
   boost::shared_ptr<StreamSink> sink2 = boost::make_shared<StreamSink>();
@@ -60,7 +62,7 @@ void InitLog() {
 #endif
   log_core_->add_sink(sink2);
   boost::log::add_common_attributes();
-  log_core_->add_global_attribute("Scopes", attributes::named_scope());
+  //log_core_->add_global_attribute("Scopes", attributes::named_scope());
 }
 
 void DeInitLog() {
