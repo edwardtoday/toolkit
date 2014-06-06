@@ -29,16 +29,11 @@ void InitLog() {
   backend1->auto_flush(true);
   boost::shared_ptr<TextSink> sink1(new TextSink(backend1));
   sink1->set_formatter(
-    expressions::format("(%1%)(%2%)(%3%)(%4%)<%5%>:\n\t> %6%")
-    % expressions::attr<unsigned int>("LineID")
+    expressions::format("%1%\t%2%\t%3%: %4%")
     % expressions::format_date_time<boost::posix_time::ptime>("TimeStamp",
         "%Y-%m-%d %H:%M:%S")
     % expressions::attr<trivial::severity_level>("Severity")
     % expressions::attr<attributes::current_thread_id::value_type>("ThreadID")
-    % expressions::format_named_scope("Scopes",
-                                      keywords::format = "%n (%f:%l)",
-                                      keywords::iteration = expressions::forward,
-                                      keywords::depth = 2)
     % expressions::smessage
   );
 #ifdef _DEBUG
@@ -51,7 +46,7 @@ void InitLog() {
   typedef sinks::synchronous_sink<sinks::text_ostream_backend> StreamSink;
   boost::shared_ptr<StreamSink> sink2 = boost::make_shared<StreamSink>();
   sink2->set_formatter(
-    expressions::format("(%1%): %2%")
+    expressions::format("%1%: %2%")
     % expressions::format_date_time<boost::posix_time::ptime>("TimeStamp",
         "%H:%M:%S")
     % expressions::smessage
