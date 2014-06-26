@@ -46,7 +46,7 @@ std::string vector_to_string(const std::vector<T>& vec) {
   std::stringstream ss;
   ss << "[";
 
-  for (T i : vec) {
+  for (const T& i : vec) {
     ss << i << ",";
   }
 
