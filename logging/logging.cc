@@ -30,11 +30,15 @@ void InitLog() {
   backend1->auto_flush(true);
   boost::shared_ptr<TextSink> sink1(new TextSink(backend1));
   sink1->set_formatter(
-    expressions::format("%1%\t%2%\t%3%: %4%")
+    expressions::format("%1%\t%2%\t%3%\t%4%:\n\t%5%")
     % expressions::format_date_time<boost::posix_time::ptime>("TimeStamp",
         "%Y-%m-%d %H:%M:%S")
     % expressions::attr<trivial::severity_level>("Severity")
     % expressions::attr<attributes::current_thread_id::value_type>("ThreadID")
+    % expressions::format_named_scope("Scopes",
+                                      boost::log::keywords::format = "%n (%f:%l)",
+                                      boost::log::keywords::iteration = expressions::forward,
+                                      boost::log::keywords::depth = 2)
     % expressions::smessage
   );
 #ifdef _DEBUG
@@ -62,7 +66,7 @@ void InitLog() {
 #endif
   log_core_->add_sink(sink2);
   boost::log::add_common_attributes();
-  //log_core_->add_global_attribute("Scopes", attributes::named_scope());
+  log_core_->add_global_attribute("Scopes", attributes::named_scope());
 }
 
 void DeInitLog() {
