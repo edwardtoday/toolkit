@@ -41,11 +41,11 @@ void InitLog() {
                                       boost::log::keywords::depth = 2)
     % expressions::smessage
   );
-#ifdef _DEBUG
-  sink1->set_filter(trivial::severity >= trivial::trace);
-#else
-  sink1->set_filter(trivial::severity >= trivial::info);
-#endif
+//#ifdef _DEBUG
+//  sink1->set_filter(trivial::severity >= trivial::trace);
+//#else
+//  sink1->set_filter(trivial::severity >= trivial::info);
+//#endif
   log_core_->add_sink(sink1);
 #endif
   // init sink2
