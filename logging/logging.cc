@@ -20,8 +20,8 @@ void InitLog() {
       // log filename pattern
       keywords::file_name = std::string(LOG_FILE_NAME) +
                             "_%Y-%m-%d_%H-%M-%S.%N.log",
-      // rotate log when reaching 4MiB
-      keywords::rotation_size = 4 * 1024 * 1024,
+      // rotate log when reaching 16MiB
+      keywords::rotation_size = 16 * 1024 * 1024,
       // or at midnight
       keywords::time_based_rotation =
         sinks::file::rotation_at_time_point(0, 0, 0),
