@@ -30,7 +30,18 @@
 
 namespace trivial = boost::log::trivial;
 
-void InitLog();
+/**
+  enum severity_level
+  {
+    trace,
+    debug,
+    info,
+    warning,
+    error,
+    fatal
+  };
+*/
+void InitLog(int shell_verbose = 1, int log_verbose = 0);
 
 void DeInitLog();
 

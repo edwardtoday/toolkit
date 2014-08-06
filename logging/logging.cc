@@ -5,7 +5,7 @@
 #define LOG_FILE_NAME "output"
 #endif  // LOG_FILE_NAME
 
-void InitLog() {
+void InitLog(int shell_verbose, int log_verbose) {
   namespace expressions = boost::log::expressions;
   namespace sinks = boost::log::sinks;
   namespace keywords = boost::log::keywords;
@@ -41,11 +41,11 @@ void InitLog() {
                                       boost::log::keywords::depth = 2)
     % expressions::smessage
   );
-//#ifdef _DEBUG
-//  sink1->set_filter(trivial::severity >= trivial::trace);
-//#else
-//  sink1->set_filter(trivial::severity >= trivial::info);
-//#endif
+
+  if (log_verbose > 0) {
+    sink1->set_filter(trivial::severity >= log_verbose);
+  }
+
   log_core_->add_sink(sink1);
 #endif
   // init sink2
@@ -59,11 +59,11 @@ void InitLog() {
   );
   boost::shared_ptr<std::ostream> stream(&std::clog, boost::empty_deleter());
   sink2->locked_backend()->add_stream(stream);
-#ifdef _DEBUG
-  sink2->set_filter(trivial::severity >= trivial::debug);
-#else
-  sink2->set_filter(trivial::severity >= trivial::info);
-#endif
+
+  if (shell_verbose > 0) {
+    sink2->set_filter(trivial::severity >= shell_verbose);
+  }
+
   log_core_->add_sink(sink2);
   boost::log::add_common_attributes();
   log_core_->add_global_attribute("Scopes", attributes::named_scope());
