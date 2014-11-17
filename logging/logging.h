@@ -45,7 +45,8 @@ void InitLog(int shell_verbose = 1, int log_verbose = 0);
 
 void DeInitLog();
 
-BOOST_LOG_INLINE_GLOBAL_LOGGER_DEFAULT(
-  my_logger,
-  boost::log::sources::severity_logger_mt<boost::log::trivial::severity_level>)
+typedef boost::log::sources::severity_logger_mt<trivial::severity_level>
+my_logger_type;
+
+BOOST_LOG_INLINE_GLOBAL_LOGGER_DEFAULT(my_logger, my_logger_type)
 #endif  // QINGPEI_TOOLKIT_LOGGING_H_
