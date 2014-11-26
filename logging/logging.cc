@@ -30,16 +30,21 @@ void InitLog(int shell_verbose, int log_verbose) {
   backend1->auto_flush(true);
   boost::shared_ptr<TextSink> sink1(new TextSink(backend1));
   sink1->set_formatter(
-    expressions::format("%1%\t%2%\t%3%\t%4%:\n\t%5%")
+    expressions::format("%1%\t%2%:\t%3%")
     % expressions::format_date_time<boost::posix_time::ptime>("TimeStamp",
         "%Y-%m-%d %H:%M:%S")
     % expressions::attr<trivial::severity_level>("Severity")
-    % expressions::attr<attributes::current_thread_id::value_type>("ThreadID")
-    % expressions::format_named_scope("Scopes",
-                                      boost::log::keywords::format = "%n (%f:%l)",
-                                      boost::log::keywords::iteration = expressions::forward,
-                                      boost::log::keywords::depth = 2)
     % expressions::smessage
+    //expressions::format("%1%\t%2%\t%3%\t%4%:\n\t%5%")
+    //% expressions::format_date_time<boost::posix_time::ptime>("TimeStamp",
+    //    "%Y-%m-%d %H:%M:%S")
+    //% expressions::attr<trivial::severity_level>("Severity")
+    //% expressions::attr<attributes::current_thread_id::value_type>("ThreadID")
+    //% expressions::format_named_scope("Scopes",
+    //                                  boost::log::keywords::format = "%n (%f:%l)",
+    //                                  boost::log::keywords::iteration = expressions::forward,
+    //                                  boost::log::keywords::depth = 2)
+    //% expressions::smessage
   );
 
   if (log_verbose > 0) {
