@@ -32,7 +32,7 @@ void InitLog(int shell_verbose, int log_verbose) {
   sink1->set_formatter(
     expressions::format("%1%\t%2%:\t%3%")
     % expressions::format_date_time<boost::posix_time::ptime>("TimeStamp",
-        "%Y-%m-%d %H:%M:%S")
+        "%Y-%m-%d %H:%M:%S.%f")
     % expressions::attr<trivial::severity_level>("Severity")
     % expressions::smessage
     //expressions::format("%1%\t%2%\t%3%\t%4%:\n\t%5%")
