@@ -30,7 +30,7 @@ int main() {
   typedef std::string::const_iterator iter;
   typedef boost::iterator_range<iter> string_view;
   timer.restart();
-  std::vector< string_view> vsvb;
+  std::vector<string_view> vsvb;
   qingpei::toolkit::string::split_boost(*text, delims, vsvb);
   std::cout << "Time boost view: " << timer.elapsed() << std::endl;
   // Custom split
@@ -40,7 +40,7 @@ int main() {
   std::cout << "Time custom: " << timer.elapsed() << std::endl;
   // Custom split views
   timer.restart();
-  std::vector< string_view> vsv;
+  std::vector<string_view> vsv;
   qingpei::toolkit::string::split_custom(*text, delims, vsv);
   std::cout << "Time custom view: " << timer.elapsed() << std::endl;
   // Custom split strpbrk

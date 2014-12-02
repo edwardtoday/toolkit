@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="join.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="string.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="string.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
