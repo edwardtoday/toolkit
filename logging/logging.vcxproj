@@ -39,13 +39,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\boost_1_55_0;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\boost_1_55_0\lib32-msvc-12.0;$(LibraryPath)</LibraryPath>
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\boost_1_55_0;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\boost_1_55_0\lib32-msvc-12.0;$(LibraryPath)</LibraryPath>
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -54,13 +50,14 @@
       <Optimization>Disabled</Optimization>
       <EnablePREfast>false</EnablePREfast>
       <PrecompiledHeader>Create</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(boost_dir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>LOG_TO_FILE;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(boost_lib32_vc12);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
-    <PreBuildEvent>
-      <Command>AStyle.exe --style=google -s2 -c -Y -xn -xc -xl -xk -w -f -p  -H -U -xe -k1 -W1 -j -xy -xp -xC80 -xL -Z -Q --mode=c -n -r "$(ProjectDir)*.cc" "$(ProjectDir)*.h"</Command>
-    </PreBuildEvent>
+    <PreBuildEvent />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -69,14 +66,15 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <EnablePREfast>false</EnablePREfast>
       <PrecompiledHeader>Create</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(boost_dir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>LOG_TO_FILE;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(boost_lib32_vc12);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
-    <PreBuildEvent>
-      <Command>AStyle.exe --style=google -s2 -c -Y -xn -xc -xl -xk -w -f -p  -H -U -xe -k1 -W1 -j -xy -xp -xC80 -xL -Z -Q --mode=c -n -r "$(ProjectDir)*.cc" "$(ProjectDir)*.h"</Command>
-    </PreBuildEvent>
+    <PreBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="logging.cc" />
