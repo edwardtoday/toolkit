@@ -92,6 +92,8 @@ void split_boost(std::string const& s, char const* delims, C& ret) {
   output.swap(ret);
 }
 
+std::string tail(std::string const& source, size_t const length);
+
 bool end_with(std::string const& fullString, std::string const& ending);
 
 } // namespace string
