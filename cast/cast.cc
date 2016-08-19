@@ -90,6 +90,29 @@ std::string hex_string_to_bitset_string(const std::string& hex_string) {
   return binary_string;
 }
 
+void hex_string_to_bytes(const std::string& hex_string, std::vector<uint8_t>& bytes) {
+  int step = (hex_string.size() % 2) == 0 ? 2 : 1;
+  std::size_t pos = 0;
+  while (pos < hex_string.size()) {
+    int num = std::stoi(hex_string.substr(pos, step), 0, 16);
+    bytes.push_back(static_cast<uint8_t>(num));
+    pos += step;
+    step = 2;
+  }
+}
+
+void hex_string_to_bytes(const std::string& hex_string, uint8_t* bytes) {
+  int step = (hex_string.size() % 2) == 0 ? 2 : 1;
+  std::size_t pos = 0;
+  int idx = 0;
+  while (pos < hex_string.size()) {
+    int num = std::stoi(hex_string.substr(pos, step), 0, 16);
+    bytes[idx++] = static_cast<uint8_t>(num);
+    pos += step;
+    step = 2;
+  }
+}
+
 } // namespace cast
 } // namespace toolkit
 } // namespace qingpei

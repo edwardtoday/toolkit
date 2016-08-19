@@ -7,6 +7,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 namespace qingpei {
 namespace toolkit {
@@ -100,6 +101,31 @@ T bytes_to_num(const uint8_t* bytes) {
 
   return result;
 }
+
+template<class T>
+T bytes_to_num(const uint8_t* bytes, std::size_t len) {
+  T result = 0;
+  const std::size_t width = std::min(sizeof(result), len);  // size of bytes
+  
+  for (std::size_t i = 0; i < width; ++i) {
+    result |= (T)bytes[len - i - 1] << (i * 8);
+  }
+
+  return result;
+}
+
+/**
+  @brief  Conversions from hex string to bytes (vector<uint8_t>)
+*/
+void hex_string_to_bytes(const std::string& hex_string, std::vector<uint8_t>& bytes);
+
+/**
+  @brief    Conversions from hex string to bytes (uint8_t*)
+  @warning  Caller should make sure that
+            - input pointer is valid
+            - output pointer has enough space (sizeof(num) bytes) allocated
+*/
+void hex_string_to_bytes(const std::string& hex_string, uint8_t* bytes);
 
 std::string hex_string_to_bitset_string(const std::string& hex_string);
 
